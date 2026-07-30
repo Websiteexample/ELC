@@ -69,8 +69,8 @@
   }
 
   /* ---------- brand mark ---------- */
-  /* FIX: icon was cropped by a too-tight overflow:hidden box. Give it room
-     and let the image scale within it without clipping the logo edges. */
+  /* FIX: icon box enlarged and set to object-fit:contain so the logo is
+     never cropped, no matter what aspect ratio the source image is. */
   .brand-mark{
     display:flex; align-items:center; gap:12px;
     flex:0 0 auto;
@@ -80,7 +80,7 @@
   }
   @keyframes markIn{ to{ opacity:1; transform:translateY(0); } }
   .brand-mark .mark-img{
-    width:52px; height:52px;
+    width:64px; height:64px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -90,7 +90,7 @@
   .brand-mark .mark-img img{
     width:100%; height:100%;
     object-fit:contain;
-    border-radius:50%;
+    border-radius:0;
   }
   .brand-mark .mark-word{ display:none; }
 
@@ -108,7 +108,7 @@
     -webkit-backdrop-filter:blur(10px) saturate(1.4);
     box-shadow:0 1px 0 var(--line);
   }
-  .site-nav.scrolled .mark-img{ width:40px; height:40px; }
+  .site-nav.scrolled .mark-img{ width:48px; height:48px; }
   .site-nav ul{
     display:flex; gap:36px; list-style:none;
     align-items:center;
@@ -175,8 +175,8 @@
     padding:130px 44px 60px;
     overflow:hidden;
   }
-  /* FIX: video is now a full-bleed background layer behind all hero content,
-     with a gradient overlay so the logo/title/intro/CTA stay readable */
+  /* FIX: lightened the overlay gradients significantly so the video shows
+     through much more clearly instead of reading as near-black/dark green */
   .hero-video-wrap{
     position:absolute;
     inset:0;
@@ -189,14 +189,14 @@
   }
   .hero-video-wrap video{
     width:100%; height:100%; object-fit:cover;
-    filter:saturate(1.1) contrast(1.05) brightness(0.55);
+    filter:saturate(1.1) contrast(1.05) brightness(0.85);
   }
   .hero-video-wrap::after{
     content:'';
     position:absolute; inset:0;
     background:
-      linear-gradient(270deg, rgba(12,26,16,0.85) 0%, rgba(12,26,16,0.55) 45%, rgba(12,26,16,0.25) 75%, rgba(12,26,16,0.15) 100%),
-      linear-gradient(180deg, rgba(12,26,16,0.3) 0%, rgba(12,26,16,0.15) 40%, rgba(12,26,16,0.7) 85%, var(--black) 100%);
+      linear-gradient(270deg, rgba(12,26,16,0.55) 0%, rgba(12,26,16,0.3) 45%, rgba(12,26,16,0.12) 75%, rgba(12,26,16,0.05) 100%),
+      linear-gradient(180deg, rgba(12,26,16,0.1) 0%, rgba(12,26,16,0.05) 40%, rgba(12,26,16,0.4) 85%, rgba(12,26,16,0.6) 100%);
   }
   @keyframes heroBgIn{ to{ opacity:1; } }
 
@@ -219,12 +219,9 @@
     align-items:flex-end;
     text-align:right;
   }
+  /* FIX: removed the duplicate icon that sat above the title wordmark */
   .hero-icon-slot{
-    width:64px; height:64px;
-    overflow:visible;
-    opacity:0;
-    transform:translateY(16px);
-    animation:heroIn 1.1s var(--ease-soft) .5s forwards;
+    display:none;
   }
   /* FIX: intro shortened via smaller max-width + tighter copy so it reads
      as a short line even on large screens instead of stretching wide */
@@ -383,14 +380,14 @@
     position:absolute; inset:0;
     width:100%; height:100%;
     object-fit:cover;
-    opacity:0.55;
+    opacity:0.8;
     transition:opacity .5s ease, transform .8s var(--ease-soft);
   }
-  .find-card.expanded img{ opacity:0.3; transform:scale(1.06); }
+  .find-card.expanded img{ opacity:0.55; transform:scale(1.06); }
   .find-card::after{
     content:'';
     position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(12,26,16,0.12) 0%, rgba(12,26,16,0.94) 100%);
+    background:linear-gradient(180deg, rgba(12,26,16,0.05) 0%, rgba(12,26,16,0.85) 100%);
   }
   .find-card-inner{
     position:absolute; inset:0; z-index:2;
@@ -575,12 +572,10 @@
   }
 
   /* ---------- MAP / VISIT ---------- */
-  /* FIX: removed the boxed map "card" entirely. The map now sits as a
-     full-bleed background image for the whole section, with the info
-     block floating on top as a soft translucent panel — no separate
-     card outline, no border. */
+  /* FIX: lightened the overlay gradient over the map background so the
+     section reads much brighter instead of near-black */
   .visit{
-    background:linear-gradient(180deg, rgba(12,26,16,0.75) 0%, rgba(12,26,16,0.94) 55%, var(--black) 100%), var(--green-deep) url('images/map.jpg') center/cover no-repeat;
+    background:linear-gradient(180deg, rgba(12,26,16,0.35) 0%, rgba(12,26,16,0.55) 55%, rgba(12,26,16,0.7) 100%), var(--green-deep) url('images/map.jpg') center/cover no-repeat;
     position:relative;
   }
   .visit .container{
@@ -825,8 +820,8 @@
 
     .site-nav{ padding:14px 16px 14px 18px; }
     .site-nav.scrolled{ padding:10px 16px 10px 18px; }
-    .brand-mark .mark-img{ width:44px; height:44px; }
-    .site-nav.scrolled .mark-img{ width:36px; height:36px; }
+    .brand-mark .mark-img{ width:52px; height:52px; }
+    .site-nav.scrolled .mark-img{ width:42px; height:42px; }
     .nav-toggle{ display:block; margin-right:-10px; }
     .site-nav ul{
       position:fixed; top:0; right:0; height:100vh; height:calc(var(--vh,1vh)*100);
@@ -939,7 +934,7 @@
       </video>
     </div>
     <div class="hero-grid">
-      <div class="hero-icon-slot"><img src="images/icon.png" alt="Electric Crocodile icon"></div>
+      <!-- FIX: removed the duplicate icon that sat directly above the title wordmark -->
       <div class="hero-title-slot">
         <img src="images/title-wordmark.png" alt="Electric Crocodile — Vintage and More">
       </div>
