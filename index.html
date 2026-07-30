@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* main color swapped from black to a deep green base */
     --black:#0c1a10;
     --black-soft:#122417;
     --green:#2f9e4f;
@@ -68,9 +67,6 @@
     .marquee-track{ animation:none !important; }
   }
 
-  /* ---------- brand mark ---------- */
-  /* FIX: icon box enlarged and set to object-fit:contain so the logo is
-     never cropped, no matter what aspect ratio the source image is. */
   .brand-mark{
     display:flex; align-items:center; gap:12px;
     flex:0 0 auto;
@@ -162,7 +158,6 @@
   .nav-open .nav-toggle span:nth-child(2){ opacity:0; }
   .nav-open .nav-toggle span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
 
-  /* ---------- HERO ---------- */
   .hero{
     position:relative;
     min-height:100vh;
@@ -175,8 +170,6 @@
     padding:130px 44px 60px;
     overflow:hidden;
   }
-  /* FIX: lightened the overlay gradients significantly so the video shows
-     through much more clearly instead of reading as near-black/dark green */
   .hero-video-wrap{
     position:absolute;
     inset:0;
@@ -200,8 +193,6 @@
   }
   @keyframes heroBgIn{ to{ opacity:1; } }
 
-  /* FIX: hero content now sits to one side (right), not centered/left,
-     while the video still spans the full section as its background */
   .hero-grid{
     display:flex;
     flex-direction:column;
@@ -219,12 +210,9 @@
     align-items:flex-end;
     text-align:right;
   }
-  /* FIX: removed the duplicate icon that sat above the title wordmark */
   .hero-icon-slot{
     display:none;
   }
-  /* FIX: intro shortened via smaller max-width + tighter copy so it reads
-     as a short line even on large screens instead of stretching wide */
   .hero-desc{
     font-family:'Space Mono', monospace;
     font-size:13px;
@@ -238,7 +226,6 @@
   .hero-desc strong{ color:var(--green); display:block; margin-bottom:6px; font-size:14px; }
   @keyframes heroIn{ to{ opacity:1; transform:translateY(0); } }
 
-  /* FIX: title left-aligned within its own slot instead of centered */
   .hero-title-slot{
     width:100%;
     max-width:480px;
@@ -289,8 +276,6 @@
   .section-pad{ padding:120px 44px; }
   .container{ max-width:1320px; margin:0 auto; }
 
-  /* ---------- MARQUEE ---------- */
-  /* FIX: moved in markup to sit right after the hero, before Finds section */
   .marquee-wrap{
     background:var(--yellow);
     border-top:3px solid var(--black);
@@ -324,7 +309,6 @@
   }
   @keyframes scrollLeft{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 
-  /* ---------- FINDS / VERTICAL EXPAND CARDS ---------- */
   .finds{ background:var(--black); }
   .finds-header{
     text-align:left;
@@ -342,9 +326,6 @@
     font-size:13px; color:rgba(240,194,57,0.6); line-height:1.8;
     margin-top:14px;
   }
-  /* FIX: improved spacing/sizing so the row reads as a complete, intentional
-     layout instead of looking like sections are missing. Wider collapsed
-     cards, consistent gap, rounded corners, and a scroll hint below. */
   .finds-scroll{
     overflow-x:auto;
     overflow-y:hidden;
@@ -452,13 +433,9 @@
   .find-card:nth-child(4){ --accent: var(--pink); }
   .find-card:nth-child(5){ --accent: var(--green-bright); }
   .find-card:nth-child(6){ --accent: var(--yellow); }
-  .find-card:nth-child(7){ --accent: var(--pink); }
-  .find-card:nth-child(8){ --accent: var(--green-bright); }
   .find-card{ box-shadow: inset 0 0 0 0 var(--accent); transition:width 0.6s var(--ease-soft), box-shadow .4s ease; }
   .find-card.expanded{ box-shadow: inset 0 0 0 3px var(--accent); }
 
-  /* Scroll cue reused below the Finds cards, in normal flow instead of
-     absolutely positioned like the old hero version */
   .finds-scroll-cue{
     position:static;
     margin-top:24px;
@@ -466,7 +443,6 @@
     animation:none;
   }
 
-  /* ---------- INQUIRE / FORM ---------- */
   .inquire{
     background:var(--black-soft);
     color:var(--yellow);
@@ -571,9 +547,6 @@
     color:#6b5a1a;
   }
 
-  /* ---------- MAP / VISIT ---------- */
-  /* FIX: lightened the overlay gradient over the map background so the
-     section reads much brighter instead of near-black */
   .visit{
     background:linear-gradient(180deg, rgba(12,26,16,0.35) 0%, rgba(12,26,16,0.55) 55%, rgba(12,26,16,0.7) 100%), var(--green-deep) url('images/map.jpg') center/cover no-repeat;
     position:relative;
@@ -619,7 +592,6 @@
   }
   .visit-block .sub{ font-family:'Space Mono', monospace; font-size:12px; color:#6b6350; margin-top:6px;}
 
-  /* ---------- STORY (founder hover swap) ---------- */
   .story{
     background:var(--black-soft);
     overflow:hidden;
@@ -661,9 +633,6 @@
   .founder-img.dim{ filter:grayscale(0.75) brightness(0.45); }
   .founder-img.left:hover{ transform:rotate(-5deg) translateY(-8px) scale(1.03); }
   .founder-img.right:hover{ transform:rotate(5deg) translateY(-8px) scale(1.03); }
-  /* FIX: founders were shifting because the title block between them changes
-     width with the text. Give the title slot a fixed width so the founder
-     images stay put no matter how long the swapped title text is. */
   .story-title-wrap{
     text-align:center;
     padding:0 20px;
@@ -718,7 +687,6 @@
     margin-top:6px;
   }
 
-  /* ---------- FOOTER ---------- */
   footer{
     background:var(--black-soft);
     color:rgba(240,194,57,0.6);
@@ -815,9 +783,6 @@
   .to-top.show{ opacity:1; pointer-events:auto; transform:translateY(0) scale(1); }
   .to-top:hover{ background:var(--yellow); color:var(--black); border-radius:16px 50% 16px 50% / 50% 16px 50% 16px; }
 
-  /* =======================================================
-     MOBILE
-     ======================================================= */
   @media (max-width: 980px){
     .section-pad{ padding:80px 20px; }
 
@@ -949,22 +914,18 @@
     <div class="hero-video-wrap">
       <video autoplay muted loop playsinline poster="images/hero-video-poster.jpg">
         <source src="images/hero-video.mp4" type="video/mp4">
-        <!-- Upload the store's hero video as hero-video.mp4 in the /images folder to replace this placeholder -->
       </video>
     </div>
     <div class="hero-grid">
-      <!-- FIX: removed the duplicate icon that sat directly above the title wordmark -->
       <div class="hero-title-slot">
         <img src="images/title-wordmark.png" alt="Electric Crocodile — Vintage and More">
       </div>
-      <!-- FIX: intro shortened to one tight line instead of a long paragraph -->
       <p class="hero-desc"><strong>Two floors. Endless finds.</strong>[Client to provide a short vibe line.]</p>
       <a href="#inquire" class="hero-cta" data-section>Find Something Specific →</a>
     </div>
   </section>
 
   <!-- ============ MARQUEE ============ -->
-  <!-- FIX: moved above "What You'll Find" section, right after the hero -->
   <div class="marquee-wrap">
     <div class="marquee-track" id="marqueeTrack">
       <span>VINTAGE CLOTHING</span>
@@ -985,6 +946,8 @@
   </div>
 
   <!-- ============ FINDS (vertical expanding columns) ============ -->
+  <!-- Card 3 (Comics) and Card 7 (Jewelry) removed per request; remaining
+       cards renumbered 01–06 so the sequence reads cleanly. -->
   <section class="finds" id="finds">
     <div class="section-pad">
       <div class="container">
@@ -1016,54 +979,36 @@
             </div>
           </div>
           <div class="find-card" data-index="2">
-            <img src="images/card-3.jpg" alt="Comic books display">
-            <div class="find-card-inner">
-              <span class="find-card-num">03</span>
-              <h3 class="find-card-title">Comics</h3>
-              <p class="find-card-desc">[Client to provide: description of comic selection — back issues, graphic novels, boxes to dig through.]</p>
-              <span class="find-card-tag">Level 2</span>
-            </div>
-          </div>
-          <div class="find-card" data-index="3">
             <img src="images/card-4.jpg" alt="Movies and VHS tapes">
             <div class="find-card-inner">
-              <span class="find-card-num">04</span>
+              <span class="find-card-num">03</span>
               <h3 class="find-card-title">Movies</h3>
               <p class="find-card-desc">[Client to provide: description of movie selection — VHS, DVD, cult classics, horror section, etc.]</p>
               <span class="find-card-tag">Level 2</span>
             </div>
           </div>
-          <div class="find-card" data-index="4">
+          <div class="find-card" data-index="3">
             <img src="images/card-5.jpg" alt="Vinyl record crates">
             <div class="find-card-inner">
-              <span class="find-card-num">05</span>
+              <span class="find-card-num">04</span>
               <h3 class="find-card-title">Vinyl</h3>
               <p class="find-card-desc">[Client to provide: description of record selection — genres, rare finds, listening stations if any.]</p>
               <span class="find-card-tag">Level 2</span>
             </div>
           </div>
-          <div class="find-card" data-index="5">
+          <div class="find-card" data-index="4">
             <img src="images/card-6.jpg" alt="Home goods and decor">
             <div class="find-card-inner">
-              <span class="find-card-num">06</span>
+              <span class="find-card-num">05</span>
               <h3 class="find-card-title">Home &amp; Decor</h3>
               <p class="find-card-desc">[Client to provide: description of home goods, decor, or furniture finds — if applicable.]</p>
               <span class="find-card-tag">Level 1</span>
             </div>
           </div>
-          <div class="find-card" data-index="6">
-            <img src="images/card-7.jpg" alt="Jewelry and accessories">
-            <div class="find-card-inner">
-              <span class="find-card-num">07</span>
-              <h3 class="find-card-title">Jewelry</h3>
-              <p class="find-card-desc">[Client to provide: description of jewelry and accessory vendors, if applicable.]</p>
-              <span class="find-card-tag">Level 1</span>
-            </div>
-          </div>
-          <div class="find-card" data-index="7">
+          <div class="find-card" data-index="5">
             <img src="images/card-8.jpg" alt="Local art and prints">
             <div class="find-card-inner">
-              <span class="find-card-num">08</span>
+              <span class="find-card-num">06</span>
               <h3 class="find-card-title">Local Art</h3>
               <p class="find-card-desc">[Client to provide: description of local artist prints, posters, or handmade goods, if applicable.]</p>
               <span class="find-card-tag">Level 2</span>
@@ -1246,10 +1191,20 @@
     navScrim.addEventListener('click', closeNav);
     document.querySelectorAll('#navList a').forEach(a => a.addEventListener('click', closeNav));
 
-    /* FIX: pushState so each in-page section jump becomes a real history
-       entry. This lets the browser back/forward buttons step through the
-       sections (and, importantly, step back off this page to whatever the
-       visitor was on before, instead of appearing to do nothing). */
+    /* ---------------------------------------------------------
+       IN-PAGE SECTION NAVIGATION — FIXED
+       Previously each in-page anchor click called history.pushState,
+       so clicking through Finds -> Inquire -> Visit -> Story created
+       a stack of history entries. Pressing the browser back button
+       then just stepped back through those in-page positions instead
+       of leaving the site, trapping the visitor here.
+
+       Fix: in-page anchor jumps now ONLY scroll — no pushState, no
+       hash change, no new history entry at all. Browser history is
+       left completely untouched by in-page navigation, so the very
+       first press of "back" takes the visitor to wherever they
+       actually came from before landing on this page.
+    --------------------------------------------------------- */
     document.querySelectorAll('[data-section]').forEach(link => {
       link.addEventListener('click', function(e){
         const targetId = this.getAttribute('href');
@@ -1257,9 +1212,6 @@
         if(!target) return;
         e.preventDefault();
         target.scrollIntoView({ behavior:'smooth', block:'start' });
-        if(window.location.hash !== targetId){
-          history.pushState(null, '', targetId);
-        }
       });
     });
 
@@ -1267,21 +1219,6 @@
       e.preventDefault();
       closeNav();
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      if(window.location.hash){
-        history.pushState(null, '', window.location.pathname + window.location.search);
-      }
-    });
-
-    // When the user hits back/forward, scroll to whatever section (or top)
-    // the resulting URL hash points to, instead of leaving the page static.
-    window.addEventListener('popstate', function(){
-      const hash = window.location.hash;
-      if(hash){
-        const target = document.querySelector(hash);
-        if(target) target.scrollIntoView({ behavior:'smooth', block:'start' });
-      } else {
-        window.scrollTo({ top:0, behavior:'smooth' });
-      }
     });
 
     const nav = document.getElementById('siteNav');
@@ -1332,7 +1269,6 @@
     const founderRight = document.getElementById('founderRight');
 
     const defaultState = { eyebrow: 'Our Story', title: 'Funky by Design' };
-    // [Client to provide: real founder names + short taglines]
     const leftState = { eyebrow: 'Co-Founder', title: '[Founder One Name]' };
     const rightState = { eyebrow: 'Co-Founder', title: '[Founder Two Name]' };
 
